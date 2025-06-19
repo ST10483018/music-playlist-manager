@@ -1,1 +1,1 @@
-# music-playlist
+# music-playlist-manager
