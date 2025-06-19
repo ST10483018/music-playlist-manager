@@ -20,7 +20,7 @@ class MainActivity : AppCompatActivity() {
         val btnexit = findViewById<Button>(R.id.btnExit)
 
         btnaddnew.setOnClickListener {
-
+        
         }
 
         btnexit.setOnClickListener {
