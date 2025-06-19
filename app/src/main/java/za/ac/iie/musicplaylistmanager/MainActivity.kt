@@ -14,13 +14,18 @@ class MainActivity : AppCompatActivity() {
         enableEdgeToEdge()
         setContentView(R.layout.activity_main)
 
+        val artistNames = ArrayList<String>()
+        val songtitle = ArrayList<String>()
+        val ratings = ArrayList<Int>()
+        val comments = ArrayList<String>()
 
         val btnaddnew = findViewById<Button>(R.id.btnaddNew)
         val btnNext = findViewById<Button>(R.id.btnNext)
         val btnexit = findViewById<Button>(R.id.btnExit)
 
         btnaddnew.setOnClickListener {
-        
+        val artist = edtArtist.text.toString
+        val rating = edtrating
         }
 
         btnexit.setOnClickListener {
