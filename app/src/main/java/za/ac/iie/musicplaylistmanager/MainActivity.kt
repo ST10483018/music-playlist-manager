@@ -24,8 +24,10 @@ class MainActivity : AppCompatActivity() {
         val btnexit = findViewById<Button>(R.id.btnExit)
 
         btnaddnew.setOnClickListener {
-        val artist = edtArtist.text.toString
-        val rating = edtrating
+        val artist = edtArtist.text.toString()
+        val rating = edtratings.text.toString().toIntOrNull() ?: 0
+        val comment = edtComment.text.toString()
+        val Title = edtsongTitle.text.toString()     
         }
 
         btnexit.setOnClickListener {
