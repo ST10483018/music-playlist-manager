@@ -24,12 +24,12 @@ class MainActivity : AppCompatActivity() {
         }
 
         btnexit.setOnClickListener {
-            finishAffinity()
+            finishAffinity()// finishes the app when clicked
         }
 
         btnNext.setOnClickListener {
             val intent = Intent(this, DetailedReview::class.java)
-            startActivity(intent)
+            startActivity(intent)//goes to the next screen
         }
 
     }

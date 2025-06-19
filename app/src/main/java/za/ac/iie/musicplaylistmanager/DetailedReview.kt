@@ -16,14 +16,18 @@ class DetailedReview : AppCompatActivity() {
 
         val btnReturn = findViewById<Button>(R.id.btnReturn)
         val btnDisplay = findViewById<Button>(R.id.btnDisplay)
+        val btnAverage = findViewById<Button>(R.id.btnAverage)
+        btnDisplay.setOnClickListener {
 
+        }
 
+        btnAverage.setOnClickListener {
 
-
+        }
 
         btnReturn.setOnClickListener {
             val intent = Intent(this, MainActivity::class.java)
-            startActivity(intent)
+            startActivity(intent)// goes back to the original screen
         }
 
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main)) { v, insets ->
