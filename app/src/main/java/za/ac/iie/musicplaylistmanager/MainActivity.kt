@@ -9,15 +9,20 @@ import androidx.appcompat.app.AppCompatActivity
 
 
 class MainActivity : AppCompatActivity() {
+    private val Names = ArrayList<String>()
+    private val Titles = ArrayList<String>()
+    private val Ratings = ArrayList<Int>()
+    private val Comments = ArrayList<String>()
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
         setContentView(R.layout.activity_main)
 
-        val artistNames = ArrayList<String>()
-        val songtitle = ArrayList<String>()
-        val ratings = ArrayList<Int>()
-        val comments = ArrayList<String>()
+        val edtArtist = findViewById<EditText>(R.id.edtArtist)
+        val edtsongTitle = findViewById<EditText>(R.id.edtsongTitle)
+        val edtratings = findViewById<EditText>(R.id.edtRating)
+        val edtComment = findViewById<EditText>(R.id.edtComment)
 
         val btnaddnew = findViewById<Button>(R.id.btnaddNew)
         val btnNext = findViewById<Button>(R.id.btnNext)
