@@ -4,15 +4,16 @@ import android.content.Intent
 import android.os.Bundle
 import android.widget.Button
 import android.widget.EditText
+import android.widget.Toast
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 
 
 class MainActivity : AppCompatActivity() {
-    private val Names = ArrayList<String>()
-    private val Titles = ArrayList<String>()
-    private val Ratings = ArrayList<Int>()
-    private val Comments = ArrayList<String>()
+    private val names = ArrayList<String>()
+    private val titles = ArrayList<String>()
+    private val ratings = ArrayList<Int>()
+    private val comments = ArrayList<String>()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -29,10 +30,26 @@ class MainActivity : AppCompatActivity() {
         val btnexit = findViewById<Button>(R.id.btnExit)
 
         btnaddnew.setOnClickListener {
-        val artist = edtArtist.text.toString()
-        val rating = edtratings.text.toString().toIntOrNull() ?: 0
-        val comment = edtComment.text.toString()
-        val Title = edtsongTitle.text.toString()     
+            val artist = edtArtist.text.toString()
+            val title = edtsongTitle.text.toString()
+            val rating = edtratings.text.toString().toIntOrNull()
+            val comment = edtComment.text.toString()
+
+            if (artist.isNotEmpty() && title.isNotEmpty() && rating != null) {
+                names.add(artist)
+                titles.add(title)
+                ratings.add(rating)
+                comments.add(comment)
+
+                // Clear the fields
+                edtArtist.text.clear()
+                edtsongTitle.text.clear()
+                edtratings.text.clear()
+                edtComment.text.clear()
+                Toast.makeText(this, "Song added!", Toast.LENGTH_SHORT).show()
+            } else {
+                Toast.makeText(this, "Please fill in all fields correctly.", Toast.LENGTH_SHORT).show()
+            }
         }
 
         btnexit.setOnClickListener {
@@ -41,9 +58,11 @@ class MainActivity : AppCompatActivity() {
 
         btnNext.setOnClickListener {
             val intent = Intent(this, DetailedReview::class.java)
+            intent.putStringArrayListExtra("names", names)
+            intent.putStringArrayListExtra("titles", titles)
+            intent.putIntegerArrayListExtra("ratings", ratings)
+            intent.putStringArrayListExtra("comments", comments)
             startActivity(intent)//goes to the next screen
         }
-
     }
-
 }
